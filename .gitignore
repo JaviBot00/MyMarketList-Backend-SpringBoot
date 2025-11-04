@@ -1,0 +1,78 @@
+# =========================
+#  Build / Dependency dirs
+# =========================
+# Artefactos de compilación Maven
+/target/
+# Wrapper de Maven
+/.mvn/
+# Mantener jar del wrapper
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# ===================
+#  IDE & Editor Files
+# ===================
+# IntelliJ IDEA
+/.idea/
+/*.iml
+/.ipr
+/*.iws
+
+# Eclipse
+/.project
+/.classpath
+/.settings/
+
+# Visual Studio Code
+/.vscode/
+
+# Spring Tools Suite
+/.apt_generated
+/.factorypath
+/.springBeans
+/.sts4-cache
+
+# NetBeans
+/nbproject/private/
+/.nb-gradle/
+/nbbuild/
+/nbdist/
+/dist/
+/build/
+
+# ==============
+#  Logs & Reports
+# ==============
+*.log
+logs/
+coverage/
+*.out
+
+# =======================
+#  System & Temp Files
+# =======================
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+# Common temp
+*.tmp
+*.swp
+*.bak
+
+# ====================
+#  Environment & Keys
+# ====================
+.env*
+
+# =====================
+#  Spring Boot outputs
+# =====================
+*.jar
+*.war
+
+# ==============
+#  Node modules
+# ==============
+# (si no hay frontend, no hace falta; si lo hay...)
+/node_modules/
