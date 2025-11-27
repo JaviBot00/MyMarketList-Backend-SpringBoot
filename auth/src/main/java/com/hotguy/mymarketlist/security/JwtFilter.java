@@ -1,6 +1,10 @@
 package com.hotguy.mymarketlist.security;
 
 import com.hotguy.mymarketlist.service.RemoteFamilyAccountService;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.jspecify.annotations.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.User;
@@ -10,10 +14,6 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import jakarta.servlet.FilterChain;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collections;
 
@@ -65,10 +65,10 @@ public class JwtFilter extends OncePerRequestFilter {
                     // Si quisieras las autoridades reales, consulta users-service y mapea.
                     UserDetails userDetails;
                     try {
-                        var family = remoteFamilyAccountService.getByEmail(email);
+                        var family = remoteFamilyAccountService.login(email);
                         userDetails = User.withUsername(family.getEmail())
                                 .password(family.getPassword())
-                                .authorities("ROLE_USER")
+//                                .authorities("ROLE_USER")
                                 .build();
                     } catch (UsernameNotFoundException e) {
                         userDetails = User.withUsername(email)
